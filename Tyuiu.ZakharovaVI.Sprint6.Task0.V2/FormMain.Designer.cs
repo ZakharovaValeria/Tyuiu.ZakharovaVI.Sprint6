@@ -72,7 +72,7 @@
             pictureBoxFormula.Image = (Image)resources.GetObject("pictureBoxFormula.Image");
             pictureBoxFormula.Location = new Point(509, 26);
             pictureBoxFormula.Name = "pictureBoxFormula";
-            pictureBoxFormula.Size = new Size(261, 139);
+            pictureBoxFormula.Size = new Size(267, 139);
             pictureBoxFormula.TabIndex = 1;
             pictureBoxFormula.TabStop = false;
             // 
@@ -146,6 +146,7 @@
             textBoxResult.ReadOnly = true;
             textBoxResult.Size = new Size(206, 27);
             textBoxResult.TabIndex = 1;
+            textBoxResult.TextChanged += textBoxResult_TextChanged;
             // 
             // buttonHelp
             // 

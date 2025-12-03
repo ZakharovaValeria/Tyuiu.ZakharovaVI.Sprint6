@@ -60,6 +60,9 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task0.V2
 
         }
 
-        
+        private void textBoxResult_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
