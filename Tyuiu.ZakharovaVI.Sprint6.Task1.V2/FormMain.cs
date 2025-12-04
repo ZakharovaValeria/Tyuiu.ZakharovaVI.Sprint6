@@ -46,11 +46,29 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task1.V2
                 MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        \
+
+        private void buttonDone_MouseEnter(object sender, EventArgs e)
+        {
+            buttonDone.BackColor = Color.Red;
+        }
+
+        private void buttonDone_Leave(object sender, EventArgs e)
+        {
+            buttonDone.BackColor = Color.Green;
+        }
+
+        private void buttonDone_MouseDown(object sender, EventArgs e)
+        {
+            buttonDone.BackColor = Color.Blue;
+        }
+
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Таск 1 выполнила студентка группы ИБКСб-25-1 Захарова Валерия Игоревна");
         }
+
 
 
 

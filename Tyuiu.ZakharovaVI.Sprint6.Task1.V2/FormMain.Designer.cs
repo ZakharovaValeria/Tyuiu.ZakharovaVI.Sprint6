@@ -77,6 +77,7 @@
             buttonHelp.TabIndex = 4;
             buttonHelp.Text = "Справка";
             buttonHelp.UseVisualStyleBackColor = false;
+            buttonHelp.Click += buttonHelp_Click;
             // 
             // textBoxStartStep
             // 
