@@ -7,9 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using Tyuiu.ZakharovaVI.Sprint6.Task2.V4.Lib;
+using Tyuiu.ZakharovaVI.Sprint6.Task4.V18.Lib;
 
-namespace Tyuiu.ZakharovaVI.Sprint6.Task2.V4
+
+namespace Tyuiu.ZakharovaVI.Sprint6.Task4.V18
 {
     public partial class FormMain : Form
     {
@@ -34,15 +35,18 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task2.V4
 
                 valueArray = ds.GetMassFunction(startStep, stopStep);
 
-                this.chartFunction.Titles.Add("График функции sin(x)");
+                //this.chartFunction.Titles.Add("График функции sin(x)");
                 this.chartFunction.ChartAreas[0].AxisX.Title = "Ось X";
                 this.chartFunction.ChartAreas[0].AxisY.Title = "Ось Y";
 
+                textBoxResult.Text = "";
+
+                chartFunction.Series[0].Points.Clear();
+
                 for (int i = 0; i <= len - 1; i++)
                 {
-                    this.dataGridViewFunction.Rows.Add(Convert.ToString(startStep), Convert.ToString(valueArray[i]));
                     this.chartFunction.Series[0].Points.AddXY(startStep, valueArray[i]);
-
+                    textBoxResult.AppendText(valueArray[i] + Environment.NewLine);
                     startStep++;
                 }
             }
@@ -55,6 +59,28 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task2.V4
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Таск 1 выполнила студентка группы ИБКСб-25-1 Захарова Валерия Игоревна");
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask4.txt";
+                File.WriteAllText(path, textBoxResult.Text);
+                DialogResult dialodResult = MessageBox.Show("Файл " + path + " сохранен успешно!\n Открыть его в блокноте?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialodResult == DialogResult.Yes) 
+                {
+                    System.Diagnostics.Process txt = new System.Diagnostics.Process();
+                    txt.StartInfo.FileName = "notepad.exe";
+                    txt.StartInfo.Arguments = path;
+                    txt.Start();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Сбой при сохранении файла", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -73,22 +99,14 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task2.V4
             buttonDone.BackColor = Color.Blue;
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridViewFunction_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void chartFunction_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart1_Click(object sender, EventArgs e)
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -97,5 +115,7 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task2.V4
         {
 
         }
+
+       
     }
 }
