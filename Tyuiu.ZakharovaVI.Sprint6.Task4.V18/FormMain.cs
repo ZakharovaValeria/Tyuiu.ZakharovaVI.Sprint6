@@ -69,7 +69,7 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task4.V18
                 File.WriteAllText(path, textBoxResult.Text);
                 DialogResult dialodResult = MessageBox.Show("Файл " + path + " сохранен успешно!\n Открыть его в блокноте?", "Сообщение", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                if (dialodResult == DialogResult.Yes) 
+                if (dialodResult == DialogResult.Yes)
                 {
                     System.Diagnostics.Process txt = new System.Diagnostics.Process();
                     txt.StartInfo.FileName = "notepad.exe";
@@ -116,6 +116,9 @@ namespace Tyuiu.ZakharovaVI.Sprint6.Task4.V18
 
         }
 
-       
+        private void chartFunction_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -238,6 +238,7 @@
             title1.Name = "Title1";
             title1.Text = "График функции sin(x)";
             chartFunction.Titles.Add(title1);
+            chartFunction.Click += chartFunction_Click;
             // 
             // splitter1
             // 
